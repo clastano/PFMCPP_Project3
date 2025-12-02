@@ -436,11 +436,11 @@ example:
 
 Thing 5) Manufacturer
 5 properties:
-    1) name
-    2) location
-    3) employees count
-    4) yearly revenew (billion $)
-    5) financial status
+    1) name (std::string)
+    2) location (std::string)
+    3) employees count (int)
+    4) yearly revenew (billion $) (float)
+    5) financial status (std::string)
 3 things it can do:
     1) create a new product
     2) sell broken stuff
@@ -448,11 +448,11 @@ Thing 5) Manufacturer
 
 Thing 6) SynthEngine
 5 properties:
-    1) synthesis type
-    2) polyphony amount
-    3) current volume
-    4) supported note-max-pitch in hertz
-    5) filter resonance amount
+    1) synthesis type (std::string)
+    2) polyphony amount (int)
+    3) current volume (float)
+    4) supported note-max-pitch in hertz (int)
+    5) filter resonance amount (float)
 3 things it can do:
     1) make noise
     2) warm-up
@@ -460,11 +460,11 @@ Thing 6) SynthEngine
 
 Thing 7) Case
 5 properties:
-    1) heigth
-    2) width
-    3) knobs count
-    4) front panel color
-    5) material
+    1) heigth (int)
+    2) width (int)
+    3) knobs count (int)
+    4) front panel color identifier (int)
+    5) material (std::string)
 3 things it can do:
     1) break
     2) blink display light
@@ -472,11 +472,11 @@ Thing 7) Case
 
 Thing 8) Distributor
 5 properties:
-    1) name
-    2) location
-    3) shops count
-    4) customer base satisfaction
-    5) monthly shipping count 
+    1) name (std::string)
+    2) location (std::string)
+    3) shops count (int)
+    4) customer base satisfaction (float)
+    5) monthly shipping count (int)
 3 things it can do:
     1) apply black friday discount
     2) profile customers
@@ -484,11 +484,11 @@ Thing 8) Distributor
 
 Thing 9) InternalSequencer
 5 properties:
-    1) max bars supported number
-    2) song duration in seconds
-    3) currently selected track
-    4) currently selected pattern
-    5) MIDI buffer size
+    1) max bars supported number (int)
+    2) song duration in seconds (int)
+    3) currently selected track (int)
+    4) currently selected pattern (int)
+    5) MIDI buffer size (int)
 3 things it can do:
     1) playback
     2) pause
