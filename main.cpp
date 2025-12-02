@@ -434,65 +434,65 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
+Thing 5) Manufacturer
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) name
+    2) location
+    3) employees count
+    4) yearly revenew (billion $)
+    5) financial status
 3 things it can do:
-    1)
-    2)
-    3)
+    1) create a new product
+    2) sell broken stuff
+    3) make big money
 
-Thing 6)
+Thing 6) SynthEngine
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) synthesis type
+    2) polyphony amount
+    3) current volume
+    4) supported note-max-pitch in hertz
+    5) filter resonance amount
 3 things it can do:
-    1)
-    2)
-    3)
+    1) make noise
+    2) warm-up
+    3) switch-on portamento
 
-Thing 7)
+Thing 7) Case
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) heigth
+    2) width
+    3) knobs count
+    4) front panel color
+    5) material
 3 things it can do:
-    1)
-    2)
-    3)
+    1) break
+    2) blink display light
+    3) stop responding
 
-Thing 8)
+Thing 8) Distributor
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) name
+    2) location
+    3) shops count
+    4) customer base satisfaction
+    5) monthly shipping count 
 3 things it can do:
-    1)
-    2)
-    3)
+    1) apply black friday discount
+    2) profile customers
+    3) open a new shop
 
-Thing 9)
+Thing 9) InternalSequencer
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) max bars supported number
+    2) song duration in seconds
+    3) currently selected track
+    4) currently selected pattern
+    5) MIDI buffer size
 3 things it can do:
-    1)
-    2)
-    3)
+    1) playback
+    2) pause
+    3) stop
  */
 
 /*
