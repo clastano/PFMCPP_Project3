@@ -196,53 +196,53 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
+Thing 1) Water Bottle
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) table of chemical content
+    2) capacity in onces
+    3) contained liquid level in onces
+    4) current weight (kg)
+    5) transparency percentage
 3 things it can do:
-    1)
-    2)
-    3)
+    1) break
+    2) getting old and dirty
+    3) stand still
 
-Thing 2)
+Thing 2) laptop
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) display width
+    2) keyboard layout identifier
+    3) trackpad sensitivity
+    4) speakers count
+    5) usb-port speed
 3 things it can do:
-    1)
-    2)
-    3)
+    1) start-up
+    2) shut-down
+    3) go sleep-mode
 
-Thing 3)
+Thing 3) refrigerator
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) thermostat lower threshold
+    2) total volume
+    3) power consumption
+    4) current temperature
+    5) case material
 3 things it can do:
-    1)
-    2)
-    3)
+    1) lower the temperature
+    2) stop engine temporarily
+    3) switch on the light
 
-Thing 4)
+Thing 4) guitar
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) strings count
+    2) lower note identifier
+    3) output-jack slots count
+    4) body material id
+    5) body shape type
 3 things it can do:
-    1)
-    2)
-    3)
+    1) play
+    2) collect dust
+    3) sound terrible
 */
 
 /*
