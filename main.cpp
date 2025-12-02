@@ -198,11 +198,11 @@ Part 1b - Step 2: Assignment
 
 Thing 1) Water Bottle
 5 properties:
-    1) table of chemical content
-    2) capacity in onces
-    3) contained liquid level in onces
-    4) current weight (kg)
-    5) transparency percentage
+    1) table of chemical content (std::string)
+    2) capacity in onces (float)
+    3) contained liquid level in onces (float)
+    4) current weight in kg (float)
+    5) transparency percentage (int)
 3 things it can do:
     1) break
     2) getting old and dirty
@@ -210,11 +210,11 @@ Thing 1) Water Bottle
 
 Thing 2) laptop
 5 properties:
-    1) display width
-    2) keyboard layout identifier
-    3) trackpad sensitivity
-    4) speakers count
-    5) usb-port speed
+    1) display width (float)
+    2) keyboard layout identifier (std::string)
+    3) trackpad sensitivity (int)
+    4) speakers count (int)
+    5) usb-port speed (float)
 3 things it can do:
     1) start-up
     2) shut-down
@@ -222,11 +222,11 @@ Thing 2) laptop
 
 Thing 3) refrigerator
 5 properties:
-    1) thermostat lower threshold
-    2) total volume
-    3) power consumption
-    4) current temperature
-    5) case material
+    1) thermostat lower threshold in °C (int)
+    2) total volume in onces (float)
+    3) power consumption in watt (float)
+    4) current temperature in °C (float)
+    5) case material (std::string)
 3 things it can do:
     1) lower the temperature
     2) stop engine temporarily
@@ -234,11 +234,11 @@ Thing 3) refrigerator
 
 Thing 4) guitar
 5 properties:
-    1) strings count
-    2) lower note identifier
-    3) output-jack slots count
-    4) body material id
-    5) body shape type
+    1) strings count (int)
+    2) lower note identifier (std::string)
+    3) output-jack slots count (int)
+    4) body material id (int)
+    5) body shape type (std::string)
 3 things it can do:
     1) play
     2) collect dust
