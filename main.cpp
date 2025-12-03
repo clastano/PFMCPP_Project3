@@ -690,6 +690,20 @@ Thing 8) Distributor
 */
 struct Distributor
 {
+    
+    struct Shop
+    {
+        std::string ownerName = "John Doe";
+        std::string address = "LA";
+        long ranking = 0;
+        int attendentCount = 3;
+        int showRoomArea = 230;
+    
+        void prepareProductCatalog();
+        void openDoors();
+        void addProductBrand(std::string brand);
+    };
+
     //     1) name (std::string)
     std::string name = "Music Everywhere";
     //     2) location (std::string)
@@ -708,20 +722,7 @@ struct Distributor
     // accept customer identifier to profile
     long profileCustomer(long customerId); // returns created profile identifier
     //     3) open a new shop
-    void openNewShop();
-
-    struct Shop
-    {
-        std::string ownerName = "John Doe";
-        std::string address = "LA";
-        long ranking = 0;
-        int attendentCount = 3;
-        int showRoomArea = 230;
-
-        void prepareProductCatalog();
-        void openDoors();
-        void addProductBrand(std::string brand);
-    };
+    void openNewShop(Shop shop);
 };
 /*
 Thing 9) InternalSequencer
@@ -738,6 +739,36 @@ Thing 9) InternalSequencer
 */
 struct InternalSequencer
 {
+    
+    struct MidiClip
+    {
+        std::string clipName = "CHORUS";
+        int midiChannel = 0;
+        int lengthInBars = 4;
+        bool cloneable = true;
+        bool allow = true;
+    
+        void resize(int newDurationInBars);
+        // accepts option to transform data w/o backup history
+        void transpose(bool destructive = false);
+        void setMidiChannel(int midiChannel);
+    };
+    
+    struct PianoRoll
+    {
+        MidiClip currentClip;
+        float editorViewPortStartPosition = 0;
+        float editorViewPortZoomScalePercentage = 30.f;
+        int backgroundColorId = 1;
+        bool logMidiEvents = true;
+    
+        void selectAllEvents();
+        void deleteHigherNote();
+        void increaseZoom(float percentaceAmount);
+    };
+
+    PianoRoll pianoRoll;
+
     //     1) max bars supported number (int)
     int maxBarsSupportedNumber = 9999;
     //     2) song duration in seconds (int)
@@ -761,18 +792,7 @@ struct InternalSequencer
     // returns play-head time after-stop position in millis
     long stop();
 
-    struct PianoRoll
-    {
-        std::string currentClipName = "VERSE";
-        float editorViewPortStartPosition = 0;
-        float editorViewPortZoomScalePercentage = 30.f;
-        int backgroundColorId = 1;
-        bool logMidiEvents = true;
-
-        void selectAllEvents();
-        void deleteHigherNote();
-        void increaseZoom(float percentaceAmount);
-    };
+    void editInPianoRoll(MidiClip midiClip);
 };
 /*
 Thing 10) Synthesizer
