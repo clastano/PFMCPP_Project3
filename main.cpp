@@ -459,8 +459,11 @@ struct WaterBottle
     int transparencyPercentage = 58;
     // 3 things it can do:
     //     1) break
+    void doBreak(); // cannot use "break" keyword
     //     2) getting old and dirty
+    void getOldAndDirty();
     //     3) stand still
+    void standStill();
 };
 /*
 Thing 2) laptop
@@ -489,8 +492,11 @@ struct Laptop
     float usbPortSpeed = 3.4f;
     // 3 things it can do:
     //     1) start-up
+    long startUp(); // returns start-up procedure duration in millis
     //     2) shut-down
+    long shutDown(); // returns shut-down procedure duration in millis
     //     3) go sleep-mode
+    void goSleepMode(bool saveToDisk = true); // accepts boolean to persist RAM state to disk
 };
 /*
 Thing 3) refrigerator
@@ -519,8 +525,12 @@ struct Refrigerator
     std::string caseMaterial = "stainless steel";
     // 3 things it can do:
     //     1) lower the temperature
+    // accepts amount of lowering in degrees
+    float lowerTemperature(int degrees = 1); // returns the new temperature, right after the call has been fulfilled
     //     2) stop engine temporarily
+    bool stopTemporarily(); // returns whether the engine has stopped or not
     //     3) switch on the light
+    void switchLightOn();
 };
 /*
 Thing 4) guitar
@@ -549,8 +559,13 @@ struct Guitar
     std::string bodyShapeType = "Tele";
     // 3 things it can do:
     //     1) play
+    void play();
     //     2) collect dust
+    // accepts how long it should collect dust
+    long collectDust(int days = 365); // return kg of dust collected since collection started
     //     3) sound terrible
+    // accept how much should sound terrible. range [0-9]
+    void soundTerrible(int howTerrible = 9);
 };
 /*
 // correlated objects:
@@ -581,8 +596,12 @@ struct Manufacturer
     std::string financialStatus = "healthy";
     // 3 things it can do:
     //     1) create a new product
+    //    accepts the new product model name
+    long createProduct(std::string modelName); // returns the created product model identifier
     //     2) sell broken stuff
+    void sellBrokenStuff();
     //     3) make big money
+    float makeBigMoney(); // returns money amount in billion dollars
 };
 /*
 Thing 6) SynthEngine
@@ -611,8 +630,14 @@ struct SynthEngine
     float filterResonanceAmount = .765f;
     // 3 things it can do:
     //     1) make noise
+    // accepts noise type: 1: white noise, 2: brown noise, 3: pink noise
+    void makeNoise(int noiseType = 1);
     //     2) warm-up
+    // accepts the target temperature
+    bool warmUp(int targetTemperatureInCelsius); // returns if, at the end of warm-up process, the expected temperature was reached or not
     //     3) switch-on portamento
+    void switchPortamentoOn();
+    
 };
 /*
 Thing 7) Case
@@ -641,8 +666,14 @@ struct Case
     std::string material = "wood and metal";
     // 3 things it can do:
     //     1) break
+    // accepts how many pieces it should break-up
+    void doBreak(int partCount = 2); // can't use "break" keyword
     //     2) blink display light
+    // accepts blinking time interval in millis
+    void blinkDisplayLight(long intervalMillis = 2000);
     //     3) stop responding
+    // accept how long it should stop responding in millis
+    void stopResponding(long millis  = 1000);
 };
 /*
 Thing 8) Distributor
@@ -668,11 +699,16 @@ struct Distributor
     //     4) customer base satisfaction (float)
     float customerBaseSatisfaction = .78f;
     //     5) monthly shipping count (int)
-    int montlyShippingCouont = 1028;
+    int montlyShippingCount = 1028;
     // 3 things it can do:
     //     1) apply black friday discount
+    // accepts the order identifier on which apply the discount
+    float applyBlackFridayDiscount(long orderId); // return final price in dollars
     //     2) profile customers
+    // accept customer identifier to profile
+    long profileCustomer(long customerId); // returns created profile identifier
     //     3) open a new shop
+    void openNewShop();
 };
 /*
 Thing 9) InternalSequencer
@@ -701,8 +737,16 @@ struct InternalSequencer
     int midiBufferSize = 1024;
     // 3 things it can do:
     //     1) playback
+    // accepts:
+    //    - playback start position in millis
+    //    - speed multiplier from original speed
+    void playback(long timePosition = 0, float speedMultiplier = 1.f);
     //     2) pause
+    // returns play-head time after-pause position in millis
+    long pause();
     //     3) stop
+    // returns play-head time after-stop position in millis
+    long stop();
 };
 /*
 Thing 10) Synthesizer
@@ -731,8 +775,13 @@ struct Synthesizer
     InternalSequencer internalSequencer;
     // 3 things it can do:
     //     1) play notes
+    void playNotes();
     //     2) change internal status
+    // accepts an event type to determine internal behavior
+    void changeInternalStatus(int eventTypeIdentifier);
     //     3) light-up feedback LEDs
+    // accepts feedback duration in millis
+    void lightUpFeedbackLeds(long durationMilis = 2000);
 };
 
 
