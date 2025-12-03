@@ -444,7 +444,12 @@ Thing 1) Water Bottle
     1) break
     2) getting old and dirty
     3) stand still
+*/
+struct WaterBottle
+{
 
+};
+/*
 Thing 2) laptop
 5 properties:
     1) display width (float)
@@ -456,7 +461,12 @@ Thing 2) laptop
     1) start-up
     2) shut-down
     3) go sleep-mode
+*/
+struct Laptop
+{
 
+};
+/*
 Thing 3) refrigerator
 5 properties:
     1) thermostat lower threshold in °C (int)
@@ -468,7 +478,12 @@ Thing 3) refrigerator
     1) lower the temperature
     2) stop engine temporarily
     3) switch on the light
+*/
+struct Refrigerator
+{
 
+};
+/*
 Thing 4) guitar
 5 properties:
     1) strings count (int)
@@ -480,7 +495,12 @@ Thing 4) guitar
     1) play
     2) collect dust
     3) sound terrible
+*/
+struct Guitar
+{
 
+};
+/*
 // correlated objects:
 
 Thing 5) Manufacturer
@@ -494,7 +514,12 @@ Thing 5) Manufacturer
     1) create a new product
     2) sell broken stuff
     3) make big money
+*/
+struct Manufacturer
+{
 
+};
+/*
 Thing 6) SynthEngine
 5 properties:
     1) synthesis type (std::string)
@@ -506,7 +531,12 @@ Thing 6) SynthEngine
     1) make noise
     2) warm-up
     3) switch-on portamento
+*/
+struct SynthEngine
+{
 
+};
+/*
 Thing 7) Case
 5 properties:
     1) heigth (int)
@@ -518,7 +548,12 @@ Thing 7) Case
     1) break
     2) blink display light
     3) stop responding
+*/
+struct Case
+{
 
+};
+/*
 Thing 8) Distributor
 5 properties:
     1) name (std::string)
@@ -530,7 +565,12 @@ Thing 8) Distributor
     1) apply black friday discount
     2) profile customers
     3) open a new shop
+*/
+struct Distributor
+{
 
+};
+/*
 Thing 9) InternalSequencer
 5 properties:
     1) max bars supported number (int)
@@ -542,7 +582,12 @@ Thing 9) InternalSequencer
     1) playback
     2) pause
     3) stop
+*/
+struct InternalSequencer
+{
 
+};
+/*
 Thing 10) Synthesizer
 5 properties:
     1) Manufacturer
@@ -556,6 +601,10 @@ Thing 10) Synthesizer
     3) light-up feedback LEDs
 
 */
+struct Synthesizer
+{
+
+};
 
 
 
