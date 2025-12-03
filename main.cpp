@@ -447,7 +447,16 @@ Thing 1) Water Bottle
 */
 struct WaterBottle
 {
-
+    // 5 properties:
+    //     1) table of chemical content (std::string)
+    //     2) capacity in onces (float)
+    //     3) contained liquid level in onces (float)
+    //     4) current weight in kg (float)
+    //     5) transparency percentage (int)
+    // 3 things it can do:
+    //     1) break
+    //     2) getting old and dirty
+    //     3) stand still
 };
 /*
 Thing 2) laptop
@@ -464,7 +473,16 @@ Thing 2) laptop
 */
 struct Laptop
 {
-
+// 5 properties:
+//     1) display width (float)
+//     2) keyboard layout identifier (std::string)
+//     3) trackpad sensitivity (int)
+//     4) speakers count (int)
+//     5) usb-port speed (float)
+// 3 things it can do:
+//     1) start-up
+//     2) shut-down
+//     3) go sleep-mode
 };
 /*
 Thing 3) refrigerator
@@ -481,7 +499,16 @@ Thing 3) refrigerator
 */
 struct Refrigerator
 {
-
+// 5 properties:
+//     1) thermostat lower threshold in °C (int)
+//     2) total volume in onces (float)
+//     3) power consumption in watt (float)
+//     4) current temperature in °C (float)
+//     5) case material (std::string)
+// 3 things it can do:
+//     1) lower the temperature
+//     2) stop engine temporarily
+//     3) switch on the light
 };
 /*
 Thing 4) guitar
@@ -498,7 +525,16 @@ Thing 4) guitar
 */
 struct Guitar
 {
-
+// 5 properties:
+//     1) strings count (int)
+//     2) lower note identifier (std::string)
+//     3) output-jack slots count (int)
+//     4) body material id (int)
+//     5) body shape type (std::string)
+// 3 things it can do:
+//     1) play
+//     2) collect dust
+//     3) sound terrible
 };
 /*
 // correlated objects:
@@ -517,7 +553,16 @@ Thing 5) Manufacturer
 */
 struct Manufacturer
 {
-
+// 5 properties:
+//     1) name (std::string)
+//     2) location (std::string)
+//     3) employees count (int)
+//     4) yearly revenew (billion $) (float)
+//     5) financial status (std::string)
+// 3 things it can do:
+//     1) create a new product
+//     2) sell broken stuff
+//     3) make big money
 };
 /*
 Thing 6) SynthEngine
@@ -534,7 +579,16 @@ Thing 6) SynthEngine
 */
 struct SynthEngine
 {
-
+// 5 properties:
+//     1) synthesis type (std::string)
+//     2) polyphony amount (int)
+//     3) current volume (float)
+//     4) supported note-max-pitch in hertz (int)
+//     5) filter resonance amount (float)
+// 3 things it can do:
+//     1) make noise
+//     2) warm-up
+//     3) switch-on portamento
 };
 /*
 Thing 7) Case
@@ -551,7 +605,16 @@ Thing 7) Case
 */
 struct Case
 {
-
+// 5 properties:
+//     1) heigth (int)
+//     2) width (int)
+//     3) knobs count (int)
+//     4) front panel color identifier (int)
+//     5) material (std::string)
+// 3 things it can do:
+//     1) break
+//     2) blink display light
+//     3) stop responding
 };
 /*
 Thing 8) Distributor
@@ -568,7 +631,16 @@ Thing 8) Distributor
 */
 struct Distributor
 {
-
+// 5 properties:
+//     1) name (std::string)
+//     2) location (std::string)
+//     3) shops count (int)
+//     4) customer base satisfaction (float)
+//     5) monthly shipping count (int)
+// 3 things it can do:
+//     1) apply black friday discount
+//     2) profile customers
+//     3) open a new shop
 };
 /*
 Thing 9) InternalSequencer
@@ -585,7 +657,16 @@ Thing 9) InternalSequencer
 */
 struct InternalSequencer
 {
-
+// 5 properties:
+//     1) max bars supported number (int)
+//     2) song duration in seconds (int)
+//     3) currently selected track (int)
+//     4) currently selected pattern (int)
+//     5) MIDI buffer size (int)
+// 3 things it can do:
+//     1) playback
+//     2) pause
+//     3) stop
 };
 /*
 Thing 10) Synthesizer
@@ -599,11 +680,19 @@ Thing 10) Synthesizer
     1) play notes
     2) change internal status
     3) light-up feedback LEDs
-
 */
 struct Synthesizer
 {
-
+// 5 properties:
+//     1) Manufacturer
+//     2) SynthEngine
+//     3) Case
+//     4) Distributor
+//     5) InternalSequencer
+// 3 things it can do:
+//     1) play notes
+//     2) change internal status
+//     3) light-up feedback LEDs
 };
 
 
