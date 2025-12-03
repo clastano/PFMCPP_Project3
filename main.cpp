@@ -709,6 +709,19 @@ struct Distributor
     long profileCustomer(long customerId); // returns created profile identifier
     //     3) open a new shop
     void openNewShop();
+
+    struct Shop
+    {
+        std::string ownerName = "John Doe";
+        std::string address = "LA";
+        long ranking = 0;
+        int attendentCount = 3;
+        int showRoomArea = 230;
+
+        void prepareProductCatalog();
+        void openDoors();
+        void addProductBrand(std::string brand);
+    };
 };
 /*
 Thing 9) InternalSequencer
@@ -747,6 +760,19 @@ struct InternalSequencer
     //     3) stop
     // returns play-head time after-stop position in millis
     long stop();
+
+    struct PianoRoll
+    {
+        std::string currentClipName = "VERSE";
+        float editorViewPortStartPosition = 0;
+        float editorViewPortZoomScalePercentage = 30.f;
+        int backgroundColorId = 1;
+        bool logMidiEvents = true;
+
+        void selectAllEvents();
+        void deleteHigherNote();
+        void increaseZoom(float percentaceAmount);
+    };
 };
 /*
 Thing 10) Synthesizer
