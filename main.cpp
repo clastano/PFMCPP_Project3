@@ -83,51 +83,51 @@ Main Object: Car Interior
         Name 4 nouns you'll find on the [Sub Object]
             1) paddle shifters
             2) 'cruise control' controls
-            3) 
-            4) 
+            3) manufacturer logo
+            4) horn
         Name 2 actions that the [Sub Object] can do:
             1) adjust cruise control settings.
-            2)
+            2) turn wheels
         
     Sub Object: Instrument Cluster
         Name 4 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
-            4)
+            1) speedometer
+            2) engine temp. warning light
+            3) oil level
+            4) gas level
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) notify low oil level
+            2) show current speed
+            3) alert for auto-pilot malfunction
     
     Sub Object: Environment Controls
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) air-conditioning on/off switch
+            2) internal light on/off switch
+            3) air vent
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) start air-conditioning
+            2) switch on internal light
+            3) control air-flow direction
 
     Sub Object: Infotainment System
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) bluetooth adapter
+            2) touch display
+            3) volume knob
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) switch radio station
+            2) start mobile phone call
+            3) raise sound volume
 
     Sub Object: Seat 
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) leather cover
+            2) adjustable back angle
+            3) adjustable seat temperature
         Name 2 actions that the [Sub Object] can do:
-            1)
-            2)
+            1) warm-up passenger back
+            2) adjust seating angle
 */
 
 /*
@@ -196,53 +196,6 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 2)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 3)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 4)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 */
 
 /*
@@ -337,17 +290,6 @@ Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
 
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
  /*
@@ -434,65 +376,6 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
 /*
@@ -544,9 +427,6 @@ MOVE THEM to the space below this block comment and put them in numerical order
     I only want to see the 10 UDTs written BELOW this block comment, in numerical order (1 - 10).
     simply CUT and PASTE them in the space provided below:
 */
-
-
-
 
 
 
@@ -1011,6 +891,407 @@ paste your code below
 */
 
 
+
+/*
+
+// unrelated objects:
+
+Thing 1) Water Bottle
+5 properties:
+    1) table of chemical content (std::string)
+    2) capacity in onces (float)
+    3) contained liquid level in onces (float)
+    4) current weight in kg (float)
+    5) transparency percentage (int)
+3 things it can do:
+    1) break
+    2) getting old and dirty
+    3) stand still
+*/
+struct WaterBottle
+{
+    //     1) table of chemical content (std::string)
+    std::string chemicalContentTable = "Nickel 9%, Cadmium 7%, Copper 3%";
+    //     2) capacity in onces (float)
+    float capacityInOnces = 2;
+    //     3) contained liquid level in onces (float)
+    float containedLiquidLevelInOnces = 1.4f;
+    //     4) current weight in kg (float)
+    float currentWeightInKg = 1.8f;
+    //     5) transparency percentage (int)
+    int transparencyPercentage = 58;
+    // 3 things it can do:
+    //     1) break
+    void doBreak(); // cannot use "break" keyword
+    //     2) getting old and dirty
+    void getOldAndDirty();
+    //     3) stand still
+    void standStill();
+};
+/*
+Thing 2) laptop
+5 properties:
+    1) display width (float)
+    2) keyboard layout identifier (std::string)
+    3) trackpad sensitivity (int)
+    4) speakers count (int)
+    5) usb-port speed (float)
+3 things it can do:
+    1) start-up
+    2) shut-down
+    3) go sleep-mode
+*/
+struct Laptop
+{
+    //     1) display width (float)
+    float displayWidth = 200;
+    //     2) keyboard layout identifier (std::string)
+    std::string keyboardlayout = "en.US";
+    //     3) trackpad sensitivity (int)
+    int trackpadSensitivity = 8;
+    //     4) speakers count (int)
+    int speakersCount = 2;
+    //     5) usb-port speed (float)
+    float usbPortSpeed = 3.4f;
+    // 3 things it can do:
+    //     1) start-up
+    long startUp(); // returns start-up procedure duration in millis
+    //     2) shut-down
+    long shutDown(); // returns shut-down procedure duration in millis
+    //     3) go sleep-mode
+    void goSleepMode(bool saveToDisk = true); // accepts boolean to persist RAM state to disk
+};
+/*
+Thing 3) refrigerator
+5 properties:
+    1) thermostat lower threshold in °C (int)
+    2) total volume in onces (float)
+    3) power consumption in watt (float)
+    4) current temperature in °C (float)
+    5) case material (std::string)
+3 things it can do:
+    1) lower the temperature
+    2) stop engine temporarily
+    3) switch on the light
+*/
+struct Refrigerator
+{
+    //     1) thermostat lower threshold in °C (int)
+    int thermostatLowerThresholdInCelsius = 3;
+    //     2) total volume in onces (float)
+    float totalVolumeInOnces = 2.2f;
+    //     3) power consumption in watt (float)
+    float powerConsumptionInWatt = .7f;
+    //     4) current temperature in °C (float)
+    float currentTemperatureInCelsius = 8.1f;
+    //     5) case material (std::string)
+    std::string caseMaterial = "stainless steel";
+    // 3 things it can do:
+    //     1) lower the temperature
+    // accepts amount of lowering in degrees
+    float lowerTemperature(int degrees = 1); // returns the new temperature, right after the call has been fulfilled
+    //     2) stop engine temporarily
+    bool stopTemporarily(); // returns whether the engine has stopped or not
+    //     3) switch on the light
+    void switchLightOn();
+};
+/*
+Thing 4) guitar
+5 properties:
+    1) strings count (int)
+    2) lower note identifier (std::string)
+    3) output-jack slots count (int)
+    4) body material id (int)
+    5) body shape type (std::string)
+3 things it can do:
+    1) play
+    2) collect dust
+    3) sound terrible
+*/
+struct Guitar
+{
+    //     1) strings count (int)
+    int stringCount = 6;
+    //     2) lower note identifier (std::string)
+    std::string lowerNoteIdentifier = "E1";
+    //     3) output-jack slots count (int)
+    int outputJackSlotsCount = 1;
+    //     4) body material id (int)
+    int bodyMaterialId = 789;
+    //     5) body shape type (std::string)
+    std::string bodyShapeType = "Tele";
+    // 3 things it can do:
+    //     1) play
+    void play();
+    //     2) collect dust
+    // accepts how long it should collect dust
+    long collectDust(int days = 365); // return kg of dust collected since collection started
+    //     3) sound terrible
+    // accept how much should sound terrible. range [0-9]
+    void soundTerrible(int howTerrible = 9);
+};
+/*
+// correlated objects:
+
+Thing 5) Manufacturer
+5 properties:
+    1) name (std::string)
+    2) location (std::string)
+    3) employees count (int)
+    4) yearly revenew (billion $) (float)
+    5) financial status (std::string)
+3 things it can do:
+    1) create a new product
+    2) sell broken stuff
+    3) make big money
+*/
+struct Manufacturer
+{
+    //     1) name (std::string)
+    std::string name = "Foo Instruments";
+    //     2) location (std::string)
+    std::string location = "a place";
+    //     3) employees count (int)
+    int employeesCount = 487;
+    //     4) yearly revenew (billion $) (float)
+    float yearlyRevenewAsBillionDollars = .1f;
+    //     5) financial status (std::string)
+    std::string financialStatus = "healthy";
+    // 3 things it can do:
+    //     1) create a new product
+    //    accepts the new product model name
+    long createProduct(std::string modelName); // returns the created product model identifier
+    //     2) sell broken stuff
+    void sellBrokenStuff();
+    //     3) make big money
+    float makeBigMoney(); // returns money amount in billion dollars
+};
+/*
+Thing 6) SynthEngine
+5 properties:
+    1) synthesis type (std::string)
+    2) polyphony amount (int)
+    3) current volume (float)
+    4) supported note-max-pitch in hertz (int)
+    5) filter resonance amount (float)
+3 things it can do:
+    1) make noise
+    2) warm-up
+    3) switch-on portamento
+*/
+struct SynthEngine
+{
+    //     1) synthesis type (std::string)
+    std::string synthesisType = "Virtual Analog";
+    //     2) polyphony amount (int)
+    int polyphonyAmount = 8;
+    //     3) current volume (float)
+    float currentVolume = .7f;
+    //     4) supported note-max-pitch in hertz (int)
+    int supportedNoteMaxPitchInHertz = 10000;
+    //     5) filter resonance amount (float)
+    float filterResonanceAmount = .765f;
+    // 3 things it can do:
+    //     1) make noise
+    // accepts noise type: 1: white noise, 2: brown noise, 3: pink noise
+    void makeNoise(int noiseType = 1);
+    //     2) warm-up
+    // accepts the target temperature
+    bool warmUp(int targetTemperatureInCelsius); // returns if, at the end of warm-up process, the expected temperature was reached or not
+    //     3) switch-on portamento
+    void switchPortamentoOn();
+
+};
+/*
+Thing 7) Case
+5 properties:
+    1) heigth (int)
+    2) width (int)
+    3) knobs count (int)
+    4) front panel color identifier (int)
+    5) material (std::string)
+3 things it can do:
+    1) break
+    2) blink display light
+    3) stop responding
+*/
+struct Case
+{
+    //     1) heigth (int)
+    int height = 12;
+    //     2) width (int)
+    int width = 26;
+    //     3) knobs count (int)
+    int knobsCount = 14;
+    //     4) front panel color identifier (int)
+    int frontPanelColorIdentifier = 89;
+    //     5) material (std::string)
+    std::string material = "wood and metal";
+    // 3 things it can do:
+    //     1) break
+    // accepts how many pieces it should break-up
+    void doBreak(int partCount = 2); // can't use "break" keyword
+    //     2) blink display light
+    // accepts blinking time interval in millis
+    void blinkDisplayLight(long intervalMillis = 2000);
+    //     3) stop responding
+    // accept how long it should stop responding in millis
+    void stopResponding(long millis  = 1000);
+};
+/*
+Thing 8) Distributor
+5 properties:
+    1) name (std::string)
+    2) location (std::string)
+    3) shops count (int)
+    4) customer base satisfaction (float)
+    5) monthly shipping count (int)
+3 things it can do:
+    1) apply black friday discount
+    2) profile customers
+    3) open a new shop
+*/
+struct Distributor
+{
+
+    struct Shop
+    {
+        std::string ownerName = "John Doe";
+        std::string address = "LA";
+        long ranking = 0;
+        int attendentCount = 3;
+        int showRoomArea = 230;
+
+        void prepareProductCatalog();
+        void openDoors();
+        void addProductBrand(std::string brand);
+    };
+
+    //     1) name (std::string)
+    std::string name = "Music Everywhere";
+    //     2) location (std::string)
+    std::string location = "anotherPlace";
+    //     3) shops count (int)
+    int shopCount = 23;
+    //     4) customer base satisfaction (float)
+    float customerBaseSatisfaction = .78f;
+    //     5) monthly shipping count (int)
+    int montlyShippingCount = 1028;
+    // 3 things it can do:
+    //     1) apply black friday discount
+    // accepts the order identifier on which apply the discount
+    float applyBlackFridayDiscount(long orderId); // return final price in dollars
+    //     2) profile customers
+    // accept customer identifier to profile
+    long profileCustomer(long customerId); // returns created profile identifier
+    //     3) open a new shop
+    void openNewShop(Shop shop);
+};
+/*
+Thing 9) InternalSequencer
+5 properties:
+    1) max bars supported number (int)
+    2) song duration in seconds (int)
+    3) currently selected track (int)
+    4) currently selected pattern (int)
+    5) MIDI buffer size (int)
+3 things it can do:
+    1) playback
+    2) pause
+    3) stop
+*/
+struct InternalSequencer
+{
+
+    struct MidiClip
+    {
+        std::string clipName = "CHORUS";
+        int midiChannel = 0;
+        int lengthInBars = 4;
+        bool cloneable = true;
+        bool allow = true;
+
+        void resize(int newDurationInBars);
+        // accepts option to transform data w/o backup history
+        void transpose(bool destructive = false);
+        void setMidiChannel(int midiChannel);
+    };
+
+    struct PianoRoll
+    {
+        MidiClip currentClip;
+        float editorViewPortStartPosition = 0;
+        float editorViewPortZoomScalePercentage = 30.f;
+        int backgroundColorId = 1;
+        bool logMidiEvents = true;
+
+        void selectAllEvents();
+        void deleteHigherNote();
+        void increaseZoom(float percentaceAmount);
+    };
+
+    PianoRoll pianoRoll;
+
+    //     1) max bars supported number (int)
+    int maxBarsSupportedNumber = 9999;
+    //     2) song duration in seconds (int)
+    int songDurationInSecs = 7899;
+    //     3) currently selected track (int)
+    int currentlySelectedTrack = 3;
+    //     4) currently selected pattern (int)
+    int currentlySelectedPattern = 9;
+    //     5) MIDI buffer size (int)
+    int midiBufferSize = 1024;
+    // 3 things it can do:
+    //     1) playback
+    // accepts:
+    //    - playback start position in millis
+    //    - speed multiplier from original speed
+    void playback(long timePosition = 0, float speedMultiplier = 1.f);
+    //     2) pause
+    // returns play-head time after-pause position in millis
+    long pause();
+    //     3) stop
+    // returns play-head time after-stop position in millis
+    long stop();
+
+    void editInPianoRoll(MidiClip midiClip);
+};
+/*
+Thing 10) Synthesizer
+5 properties:
+    1) Manufacturer
+    2) SynthEngine
+    3) Case
+    4) Distributor
+    5) InternalSequencer
+3 things it can do:
+    1) play notes
+    2) change internal status
+    3) light-up feedback LEDs
+*/
+struct Synthesizer
+{
+    //     1) Manufacturer
+    Manufacturer manufacturer;
+    //     2) SynthEngine
+    SynthEngine synthEngine;
+    //     3) Case
+    Case metalBox; // can't use keyword "case", here
+    //     4) Distributor
+    Distributor distributor;
+    //     5) InternalSequencer
+    InternalSequencer internalSequencer;
+    // 3 things it can do:
+    //     1) play notes
+    void playNotes();
+    //     2) change internal status
+    // accepts an event type to determine internal behavior
+    void changeInternalStatus(int eventTypeIdentifier);
+    //     3) light-up feedback LEDs
+    // accepts feedback duration in millis
+    void lightUpFeedbackLeds(long durationMilis = 2000);
+};
 
 
 
