@@ -1,19 +1,19 @@
-/*
-Project 3 - Part 2 / 5
-Video: Chapter 2 Part 6
-Implementations tasks
-
+ /*
+ Project 3 - Part 2 / 5
+ Video: Chapter 2 Part 6
+ Implementations tasks
+ 
 Create a branch named Part2
 
-tasks
-0) delete all of the plain english pseudo-code you added in Part1.
+ tasks
+ 0) delete all of the plain english pseudo-code you added in Part1.
    don't forget to remove the blank lines left behind after you remove your comments
-  - you should be left with only your UDTs.
+   - you should be left with only your UDTs.
 */
 // example:
 // if you had something like this at the end of Part1e:
 /*
-Thing: Car Wash
+Thing: Car Wash   
     5 properties:
         - number of vacuum cleaners
         - number of eco-friendly cleaning supplies
@@ -42,7 +42,7 @@ struct CarWash
     float profitPerWeek = 495.95f;               
     //number of cars serviced per day               
     int numberOfCarsServiced = 10;               
-
+    
     struct Car  
     {
         bool isAPickupTruck = false;
@@ -62,7 +62,7 @@ struct CarWash
     float chargeCustomer(float discountPercentage);
     //detail the car interior
     void detailInterior( Car car );
-
+    
     Car carBeingServiced;  
 };
 }
@@ -77,7 +77,7 @@ struct CarWash
     float waterUsedPerWeek = 200.f;            
     float profitPerWeek = 495.95f;               
     int numberOfCarsServiced = 10;               
-
+    
     struct Car  
     {
         bool isAPickupTruck = false;
@@ -94,7 +94,7 @@ struct CarWash
     void washAndWaxCar( Car car ); 
     float chargeCustomer(float discountPercentage);
     void detailInterior( Car car );
-
+    
     Car carBeingServiced;  
 };
 }
@@ -163,7 +163,7 @@ void Person::run(int howFast, bool startWithLeftFoot)
     distanceTraveled += (leftFoot.stepSize() + rightFoot.stepSize()) * howFast;
 }
 
-/*
+ /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
     If you have 'unused parameter' warnings, you aren't using one of your function parameters in your implementation.
     Solution: use the parameter in your implementation.
@@ -171,9 +171,9 @@ void Person::run(int howFast, bool startWithLeftFoot)
     If you have 'shadows a field of <classname>' warnings, a local variable in the function has the same name as a class member.  
     This local variable could also be a function parameter with the same name as the class member.
     Solution: change the local variable's name so it is different from the class member variable's name.
-
+ 
  3) be sure to write the correct full qualified name for the nested type's member functions.
-
+ 
  4) After you finish defining each type/function, click the [run] button.  Clear up any errors or warnings as best you can.
  if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
  If your code produces -Wconversion warnings, do NOT use static_cast<> to solve the warnings.  
@@ -184,18 +184,18 @@ void Person::run(int howFast, bool startWithLeftFoot)
 
 struct WaterBottle
 {
-  std::string chemicalContentTable = "Nickel 9%, Cadmium 7%, Copper 3%";
-  float capacityInOnces = 2;
-  float containedLiquidLevelInOnces = 1.4f;
-  float currentWeightInKg = 1.8f;
-  int transparencyPercentage = 58;
-  bool broken = false;
-  int dirtynessPercentage = 0;
-  bool waitingForever = false;
+    std::string chemicalContentTable = "Nickel 9%, Cadmium 7%, Copper 3%";
+    float capacityInOnces = 2;
+    float containedLiquidLevelInOnces = 1.4f;
+    float currentWeightInKg = 1.8f;
+    int transparencyPercentage = 58;
+    bool broken = false;
+    int dirtynessPercentage = 0;
+    bool waitingForever = false;
 
-  void doBreak();
-  void getOldAndDirty();
-  void standStill();
+    void doBreak();
+    void getOldAndDirty();
+    void standStill();
 };
 
 void WaterBottle::doBreak()
@@ -206,12 +206,12 @@ void WaterBottle::doBreak()
 void WaterBottle::getOldAndDirty()
 {
 
-  dirtynessPercentage++;
+    dirtynessPercentage++;
 
-  if (dirtynessPercentage > 100)
-  {
-    dirtynessPercentage = 100;
-  }
+    if (dirtynessPercentage > 100)
+    {
+        dirtynessPercentage = 100;
+    }
 }
 
 void WaterBottle::standStill()
@@ -221,87 +221,87 @@ void WaterBottle::standStill()
 
 struct Laptop
 {
-  float displayWidth = 200;
-  std::string keyboardlayout = "en.US";
-  int trackpadSensitivity = 8;
-  int speakersCount = 2;
-  float usbPortSpeed = 3.4f;
-  bool isOn = false;
-  bool powerSaving = false;
-  bool savedToDisk = false;
+    float displayWidth = 200;
+    std::string keyboardlayout = "en.US";
+    int trackpadSensitivity = 8;
+    int speakersCount = 2;
+    float usbPortSpeed = 3.4f;
+    bool isOn = false;
+    bool powerSaving = false;
+    bool savedToDisk = false;
 
-  long startUp();
-  long shutDown();
-  void goSleepMode(bool saveToDisk = true);
+    long startUp();
+    long shutDown();
+    void goSleepMode(bool saveToDisk = true);
 };
 
 long Laptop::startUp()
 {
-  isOn = true;
-  powerSaving = false;
+    isOn = true;
+    powerSaving = false;
 
-  return 100;
+    return 100;
 }
 
 long Laptop::shutDown()
 {
 
-  isOn = false;
+    isOn = false;
 
-  return 50;
+    return 50;
 }
 
 void Laptop::goSleepMode(bool saveToDisk)
 {
 
-  if (saveToDisk)
-  {
-      savedToDisk = true;
-  }
+    if (saveToDisk)
+    {
+        savedToDisk = true;
+    }
 
-  powerSaving = true;
+    powerSaving = true;
 }
 
 struct Refrigerator
 {
-  float thermostatLowerThresholdInCelsius = 3.f;
-  bool thermostatInternalError = false;
-  float totalVolumeInOnces = 2.2f;
-  float powerConsumptionInWatt = .7f;
-  float currentTemperatureInCelsius = 8.1f;
-  std::string caseMaterial = "stainless steel";
+    float thermostatLowerThresholdInCelsius = 3.f;
+    bool thermostatInternalError = false;
+    float totalVolumeInOnces = 2.2f;
+    float powerConsumptionInWatt = .7f;
+    float currentTemperatureInCelsius = 8.1f;
+    std::string caseMaterial = "stainless steel";
 
-  float lowerTemperature(float degrees = 1.f);
-  bool stopTemporarily();
-  void switchLightOn();
+    float lowerTemperature(float degrees = 1.f);
+    bool stopTemporarily();
+    void switchLightOn();
 };
 
 float Refrigerator::lowerTemperature(float degrees)
 {
 
-  currentTemperatureInCelsius -= degrees;
+    currentTemperatureInCelsius -= degrees;
 
-  if (currentTemperatureInCelsius < thermostatLowerThresholdInCelsius)
-  {
-    thermostatInternalError = true;
+    if (currentTemperatureInCelsius < thermostatLowerThresholdInCelsius)
+    {
+        thermostatInternalError = true;
 
-    return thermostatLowerThresholdInCelsius;
-  }
+        return thermostatLowerThresholdInCelsius;
+    }
 
-  return currentTemperatureInCelsius;
+    return currentTemperatureInCelsius;
 }
 
 bool Refrigerator::stopTemporarily()
 {
 
-  if (thermostatInternalError)
-  {
-    return false; // can't stop
-  }
+    if (thermostatInternalError)
+    {
+        return false; // can't stop
+    }
 
-  powerConsumptionInWatt = 0;
+    powerConsumptionInWatt = 0;
 
-  return true;
+    return true;
 }
 
 void Refrigerator::switchLightOn()
@@ -311,19 +311,19 @@ void Refrigerator::switchLightOn()
 
 struct Guitar
 {
-  int stringCount = 6;
-  std::string lowerNoteIdentifier = "E1";
-  int outputJackSlotsCount = 1;
-  int bodyMaterialId = 789;
-  std::string bodyShapeType = "Tele";
-  float collectedDust = .0f;
-  float dustCollectionDailyRate = .3722f;
-  bool inTune = true;
-  bool humbuckerOn = false;
+    int stringCount = 6;
+    std::string lowerNoteIdentifier = "E1";
+    int outputJackSlotsCount = 1;
+    int bodyMaterialId = 789;
+    std::string bodyShapeType = "Tele";
+    float collectedDust = .0f;
+    float dustCollectionDailyRate = .3722f;
+    bool inTune = true;
+    bool humbuckerOn = false;
 
-  void play();
-  float collectDust(float days = 365);
-  void soundTerrible(int howTerrible = 9);
+    void play();
+    float collectDust(float days = 365);
+    void soundTerrible(int howTerrible = 9);
 };
 
 void Guitar::play()
@@ -334,84 +334,84 @@ void Guitar::play()
 float Guitar::collectDust(float days)
 {
 
-  collectedDust += days * dustCollectionDailyRate;
+    collectedDust += days * dustCollectionDailyRate;
 
-  return collectedDust;
+    return collectedDust;
 }
 
 void Guitar::soundTerrible(int howTerrible)
 {
-  if (howTerrible > 5)
-  {
-    inTune = false;
-  }
+    if (howTerrible > 5)
+    {
+        inTune = false;
+    }
 }
 
 struct Manufacturer
 {
-  std::string name = "Foo Instruments";
-  std::string location = "a place";
-  int employeesCount = 487;
-  float yearlyRevenewAsBillionDollars = .1f;
-  std::string financialStatus = "healthy";
-  long lastCreatedProductId = 0;
-  std::string currentPrototypeName = "";
+    std::string name = "Foo Instruments";
+    std::string location = "a place";
+    int employeesCount = 487;
+    float yearlyRevenewAsBillionDollars = .1f;
+    std::string financialStatus = "healthy";
+    long lastCreatedProductId = 0;
+    std::string currentPrototypeName = "";
 
-  long createProduct(std::string modelName);
-  void sellBrokenStuff();
-  float makeBigMoney();
+    long createProduct(std::string modelName);
+    void sellBrokenStuff();
+    float makeBigMoney();
 };
 
 long Manufacturer::createProduct(std::string modelName)
 {
 
-  currentPrototypeName = "proto_" + modelName;
+    currentPrototypeName = "proto_" + modelName;
 
-  return ++lastCreatedProductId;
+    return ++lastCreatedProductId;
 }
 
 struct SynthEngine
 {
-  std::string synthesisType = "Virtual Analog";
-  int polyphonyAmount = 8;
-  float currentVolume = .7f;
-  int supportedNoteMaxPitchInHertz = 10000;
-  float filterResonanceAmount = .765f;
-  std::string currentNoiseType = "";
-  float warmingRatio = 0.8f;
-  float warmingSpeed = 7.f;
-  bool portamentoOn = false;
+    std::string synthesisType = "Virtual Analog";
+    int polyphonyAmount = 8;
+    float currentVolume = .7f;
+    int supportedNoteMaxPitchInHertz = 10000;
+    float filterResonanceAmount = .765f;
+    std::string currentNoiseType = "";
+    float warmingRatio = 0.8f;
+    float warmingSpeed = 7.f;
+    bool portamentoOn = false;
 
-  void makeNoise(int noiseType = 1);
-  bool warmUp(float targetTemperatureInCelsius);
-  void switchPortamentoOn();
+    void makeNoise(int noiseType = 1);
+    bool warmUp(float targetTemperatureInCelsius);
+    void switchPortamentoOn();
 };
 
 void SynthEngine::makeNoise(int noiseType)
 {
-  if (noiseType == 1)
-  {
-    currentNoiseType = "white";
-  }
-  else if (noiseType == 2)
-  {
-    currentNoiseType = "brown";
-  }
-  else
-  {
-    currentNoiseType = "pink";
-  }
+    if (noiseType == 1)
+    {
+        currentNoiseType = "white";
+    }
+    else if (noiseType == 2)
+    {
+        currentNoiseType = "brown";
+    }
+    else
+    {
+        currentNoiseType = "pink";
+    }
 }
 
 bool SynthEngine::warmUp(float targetTemperatureInCelsius)
 {
 
-  if (warmingRatio * warmingSpeed >= targetTemperatureInCelsius)
-  {
-    return true;
-  }
+    if (warmingRatio * warmingSpeed >= targetTemperatureInCelsius)
+    {
+        return true;
+    }
 
-  return false;
+    return false;
 }
 
 void SynthEngine::switchPortamentoOn()
@@ -421,35 +421,35 @@ void SynthEngine::switchPortamentoOn()
 
 struct Case
 {
-  int height = 12;
-  int width = 26;
-  int knobsCount = 14;
-  int frontPanelColorIdentifier = 89;
-  std::string material = "wood and metal";
-  bool broken = false;
-  bool multipartBreak = false;
-  long blinkingInterval = 5000;
-  long sleepInterval = 0;
+    int height = 12;
+    int width = 26;
+    int knobsCount = 14;
+    int frontPanelColorIdentifier = 89;
+    std::string material = "wood and metal";
+    bool broken = false;
+    bool multipartBreak = false;
+    long blinkingInterval = 5000;
+    long sleepInterval = 0;
 
-  void doBreak(int partCount = 2);
-  void blinkDisplayLight(long intervalMillis = 2000);
-  void stopResponding(long millis = 1000);
+    void doBreak(int partCount = 2);
+    void blinkDisplayLight(long intervalMillis = 2000);
+    void stopResponding(long millis = 1000);
 };
 
 void Case::doBreak(int partCount)
 {
 
-  broken = true;
+    broken = true;
 
-  if (partCount > 2)
-  {
-    multipartBreak = true;
-  }
+    if (partCount > 2)
+    {
+        multipartBreak = true;
+    }
 }
 
 void Case::blinkDisplayLight(long intervalMillis)
 {
-  blinkingInterval = intervalMillis;
+    blinkingInterval = intervalMillis;
 }
 
 void Case::stopResponding(long millis)
@@ -459,42 +459,42 @@ void Case::stopResponding(long millis)
 
 struct Distributor
 {
-  struct Shop
-  {
-    std::string ownerName = "John Doe";
-    std::string address = "LA";
-    long ranking = 0;
-    int attendentCount = 3;
-    int showRoomArea = 230;
-    float moneyBalance = 100.f;
-    bool open = false;
-    std::string mostRecentBrand = "";
+    struct Shop
+    {
+        std::string ownerName = "John Doe";
+        std::string address = "LA";
+        long ranking = 0;
+        int attendentCount = 3;
+        int showRoomArea = 230;
+        float moneyBalance = 100.f;
+        bool open = false;
+        std::string mostRecentBrand = "";
 
-    void prepareProductCatalog();
-    void openDoors();
-    void addProductBrand(std::string brand);
-  };
+        void prepareProductCatalog();
+        void openDoors();
+        void addProductBrand(std::string brand);
+    };
 
-  std::string name = "Music Everywhere";
-  std::string location = "anotherPlace";
-  int shopCount = 23;
-  float customerBaseSatisfaction = .78f;
-  int montlyShippingCount = 1028;
-  float orderPrice = 45.f;
-  long profilationIdOffset = 10;
+    std::string name = "Music Everywhere";
+    std::string location = "anotherPlace";
+    int shopCount = 23;
+    float customerBaseSatisfaction = .78f;
+    int montlyShippingCount = 1028;
+    float orderPrice = 45.f;
+    long profilationIdOffset = 10;
 
-  float applyBlackFridayDiscount(long orderId);
-  long profileCustomer(long customerId);
-  void openNewShop(Shop shop);
+    float applyBlackFridayDiscount(long orderId);
+    long profileCustomer(long customerId);
+    void openNewShop(Shop shop);
 };
 
 void Distributor::Shop::prepareProductCatalog()
 {
 
-  if (moneyBalance > 5.f)
-  {
-    moneyBalance -= 3.f; // catalog cost
-  }
+    if (moneyBalance > 5.f)
+    {
+        moneyBalance -= 3.f; // catalog cost
+    }
 }
 
 void Distributor::Shop::openDoors()
@@ -504,43 +504,43 @@ void Distributor::Shop::openDoors()
 
 void Distributor::Shop::addProductBrand(std::string brand)
 {
-  mostRecentBrand = brand;
+    mostRecentBrand = brand;
 }
 
 float Distributor::applyBlackFridayDiscount(long orderId)
 {
 
-  if (orderId == 1000)
-  {
-    return 0.f;
-  }
+    if (orderId == 1000)
+    {
+        return 0.f;
+    }
 
-  return .7f * orderPrice;
+    return .7f * orderPrice;
 }
 
 long Distributor::profileCustomer(long customerId)
 {
-  customerBaseSatisfaction *= .2f;
+    customerBaseSatisfaction *= .2f;
 
-  return profilationIdOffset + customerId;
+    return profilationIdOffset + customerId;
 }
 
 struct InternalSequencer
 {
-  struct MidiClip
-  {
-    std::string clipName = "CHORUS";
-    int midiChannel = 0;
-    int lengthInBars = 4;
-    bool cloneable = true;
-    bool allow = true;
-    int currentBaseNote = 0;
-    int baseNoteBeforeTransposition = 0;
+    struct MidiClip
+    {
+        std::string clipName = "CHORUS";
+        int midiChannel = 0;
+        int lengthInBars = 4;
+        bool cloneable = true;
+        bool allow = true;
+        int currentBaseNote = 0;
+        int baseNoteBeforeTransposition = 0;
 
-    void resize(int newDurationInBars);
-    void transpose(bool destructive = false);
-    void setMidiChannel(int midiChannel);
-  };
+        void resize(int newDurationInBars);
+        void transpose(bool destructive = false);
+        void setMidiChannel(int midiChannel);
+    };
 
 struct PianoRoll
 {
@@ -555,23 +555,23 @@ struct PianoRoll
     void selectAllEvents();
     void deleteHigherNote();
     void increaseZoom(float percentaceAmount);
-  };
+};
 
-  PianoRoll pianoRoll;
+    PianoRoll pianoRoll;
 
-  int maxBarsSupportedNumber = 9999;
-  int songDurationInSecs = 7899;
-  int currentlySelectedTrack = 3;
-  int currentlySelectedPattern = 9;
-  int midiBufferSize = 1024;
-  long currentPlaybackPosition = 0;
-  float speedMultiplier = 1.f;
+    int maxBarsSupportedNumber = 9999;
+    int songDurationInSecs = 7899;
+    int currentlySelectedTrack = 3;
+    int currentlySelectedPattern = 9;
+    int midiBufferSize = 1024;
+    long currentPlaybackPosition = 0;
+    float speedMultiplier = 1.f;
 
-  void playback(long timePosition = 0, float speedMultiplier = 1.f);
-  long pause();
-  long stop();
+    void playback(long timePosition = 0, float speedMultiplier = 1.f);
+    long pause();
+    long stop();
 
-  void editInPianoRoll(MidiClip midiClip);
+    void editInPianoRoll(MidiClip midiClip);
 };
 
 void InternalSequencer::MidiClip::resize(int newDuration)
@@ -665,5 +665,5 @@ void Synthesizer::lightUpFeedbackLeds(long durationMilis)
 
 int main()
 {
-  std::cout << "good to go!" << std::endl;
+    std::cout << "good to go!" << std::endl;
 }
