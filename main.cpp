@@ -732,6 +732,8 @@ int main()
 {
     Example::main();
 
+    //add your code between here:
+
     WaterBottle waterBottle;
 
     waterBottle.doBreak();
@@ -783,7 +785,7 @@ int main()
     Distributor::Shop goodShop;
     goodShop.prepareProductCatalog();
     goodShop.openDoors();
-    goodShop.addProductBrand("theGoodBrand(R)");
+    goodShop.addProductBrand("anotherGoodBrand(R)");
 
     Distributor distributor;
     distributor.applyBlackFridayDiscount(900);
@@ -814,8 +816,6 @@ int main()
     synthesizer.changeInternalStatus(1);
     synthesizer.lightUpFeedbackLeds();
     synthesizer.lightUpFeedbackLeds(800);
-
-    //add your code between here:
 
     //and here
     std::cout << "good to go!" << std::endl;
