@@ -75,6 +75,7 @@ int main()
 
 struct WaterBottle
 {
+    WaterBottle();
     std::string chemicalContentTable = "Nickel 9%, Cadmium 7%, Copper 3%";
     float capacityInOnces = 2;
     float containedLiquidLevelInOnces = 1.4f;
@@ -89,9 +90,15 @@ struct WaterBottle
     void standStill();
 };
 
+WaterBottle::WaterBottle()
+{
+    std::cout << "WaterBottle" << std::endl;
+}
+
 void WaterBottle::doBreak()
 {
     broken = true;
+    std::cout << "WaterBottle broken-up" << std::endl;
 }
 
 void WaterBottle::getOldAndDirty()
@@ -112,6 +119,7 @@ void WaterBottle::standStill()
 
 struct Laptop
 {
+    Laptop();
     float displayWidth = 200;
     std::string keyboardlayout = "en.US";
     int trackpadSensitivity = 8;
@@ -126,16 +134,24 @@ struct Laptop
     void goSleepMode(bool saveToDisk = true);
 };
 
+Laptop::Laptop()
+{
+    std::cout << "Laptop" << std::endl;
+}
+
 long Laptop::startUp()
 {
     isOn = true;
     powerSaving = false;
+    std::cout << "Laptop started." << std::endl;
 
     return 100;
 }
 
 long Laptop::shutDown()
 {
+
+    std::cout << "Laptop shutting down." << std::endl;
 
     isOn = false;
 
@@ -148,6 +164,7 @@ void Laptop::goSleepMode(bool saveToDisk)
     if (saveToDisk)
     {
         savedToDisk = true;
+        std::cout << "Laptop going sleep mode. saving to disk." << std::endl;
     }
 
     powerSaving = true;
@@ -155,6 +172,7 @@ void Laptop::goSleepMode(bool saveToDisk)
 
 struct Refrigerator
 {
+    Refrigerator();
     float thermostatLowerThresholdInCelsius = 3.f;
     bool thermostatInternalError = false;
     float totalVolumeInOnces = 2.2f;
@@ -167,6 +185,11 @@ struct Refrigerator
     void switchLightOn();
 };
 
+Refrigerator::Refrigerator()
+{
+    std::cout << "Refrigerator" << std::endl;
+}
+
 float Refrigerator::lowerTemperature(float degrees)
 {
 
@@ -175,6 +198,8 @@ float Refrigerator::lowerTemperature(float degrees)
     if (currentTemperatureInCelsius < thermostatLowerThresholdInCelsius)
     {
         thermostatInternalError = true;
+    
+        std::cout << "Refrigerator got a thermostat error." << std::endl;
 
         return thermostatLowerThresholdInCelsius;
     }
@@ -187,6 +212,8 @@ bool Refrigerator::stopTemporarily()
 
     if (thermostatInternalError)
     {
+    
+        std::cout << "Refrigerator: grave ERROR. can't stop engine." << std::endl;
         return false; // can't stop
     }
 
@@ -202,6 +229,7 @@ void Refrigerator::switchLightOn()
 
 struct Guitar
 {
+    Guitar();
     int stringCount = 6;
     std::string lowerNoteIdentifier = "E1";
     int outputJackSlotsCount = 1;
@@ -217,6 +245,11 @@ struct Guitar
     void soundTerrible(int howTerrible = 9);
 };
 
+Guitar::Guitar()
+{
+    std::cout << "Guitar" << std::endl;
+}
+
 void Guitar::play()
 {
     humbuckerOn = true;
@@ -226,6 +259,8 @@ float Guitar::collectDust(float days)
 {
 
     collectedDust += days * dustCollectionDailyRate;
+    
+    std::cout << "Guitar collected dust for " << days << " days." << std::endl;
 
     return collectedDust;
 }
@@ -234,12 +269,14 @@ void Guitar::soundTerrible(int howTerrible)
 {
     if (howTerrible > 5)
     {
+        std::cout << "Guitar going out of tune." << std::endl;
         inTune = false;
     }
 }
 
 struct Manufacturer
 {
+    Manufacturer();
     std::string name = "Foo Instruments";
     std::string location = "a place";
     int employeesCount = 487;
@@ -253,6 +290,11 @@ struct Manufacturer
     float makeBigMoney();
 };
 
+Manufacturer::Manufacturer()
+{
+    std::cout << "Manufacturer" << std::endl;
+}
+
 long Manufacturer::createProduct(std::string modelName)
 {
 
@@ -261,8 +303,19 @@ long Manufacturer::createProduct(std::string modelName)
     return ++lastCreatedProductId;
 }
 
+void Manufacturer::sellBrokenStuff()
+{
+    std::cout << "Manufacturer - selling broken stuff" << std::endl;
+}
+
+float Manufacturer::makeBigMoney()
+{
+    return 2.8f;
+}
+
 struct SynthEngine
 {
+    SynthEngine();
     std::string synthesisType = "Virtual Analog";
     int polyphonyAmount = 8;
     float currentVolume = .7f;
@@ -278,27 +331,42 @@ struct SynthEngine
     void switchPortamentoOn();
 };
 
+SynthEngine::SynthEngine()
+{
+    std::cout << "SynthEngine" << std::endl;
+}
+
 void SynthEngine::makeNoise(int noiseType)
 {
     if (noiseType == 1)
     {
         currentNoiseType = "white";
+        
+        std::cout << "SynthEngine - generating white noise." << std::endl;
     }
     else if (noiseType == 2)
     {
         currentNoiseType = "brown";
+        
+        std::cout << "SynthEngine - generating white brown." << std::endl;
     }
     else
     {
         currentNoiseType = "pink";
+        
+        std::cout << "SynthEngine - generating white pink." << std::endl;
     }
 }
 
 bool SynthEngine::warmUp(float targetTemperatureInCelsius)
 {
-
+    
+    std::cout << "SynthEngine - warming up." << std::endl;
+    
     if (warmingRatio * warmingSpeed >= targetTemperatureInCelsius)
     {
+        
+        std::cout << "SynthEngine - warmed-up completely." << std::endl;
         return true;
     }
 
@@ -312,6 +380,8 @@ void SynthEngine::switchPortamentoOn()
 
 struct Case
 {
+    Case();
+
     int height = 12;
     int width = 26;
     int knobsCount = 14;
@@ -327,6 +397,11 @@ struct Case
     void stopResponding(long millis = 1000);
 };
 
+Case::Case()
+{
+    std::cout << "Case" << std::endl;
+}
+
 void Case::doBreak(int partCount)
 {
 
@@ -335,6 +410,8 @@ void Case::doBreak(int partCount)
     if (partCount > 2)
     {
         multipartBreak = true;
+        
+        std::cout << "Case broke to " << partCount << " parts." << std::endl;
     }
 }
 
@@ -350,8 +427,12 @@ void Case::stopResponding(long millis)
 
 struct Distributor
 {
+    Distributor();
+
     struct Shop
     {
+        Shop();
+
         std::string ownerName = "John Doe";
         std::string address = "LA";
         long ranking = 0;
@@ -379,12 +460,26 @@ struct Distributor
     void openNewShop(Shop shop);
 };
 
+Distributor::Distributor()
+{
+    std::cout << "Distributor" << std::endl;
+}
+
+Distributor::Shop::Shop()
+{
+    std::cout << "Shop" << std::endl;
+}
+
 void Distributor::Shop::prepareProductCatalog()
 {
 
     if (moneyBalance > 5.f)
     {
-        moneyBalance -= 3.f; // catalog cost
+        const float catalogCost = 3.f;
+
+        std::cout << "Shop - spending " << catalogCost << " to prepare a product catalog." << std::endl;
+        
+        moneyBalance -= catalogCost; // catalog cost
     }
 }
 
@@ -396,6 +491,8 @@ void Distributor::Shop::openDoors()
 void Distributor::Shop::addProductBrand(std::string brand)
 {
     mostRecentBrand = brand;
+
+    std::cout << "Shop - added a new brand: [" << brand << "]" << std::endl;
 }
 
 float Distributor::applyBlackFridayDiscount(long orderId)
@@ -403,7 +500,12 @@ float Distributor::applyBlackFridayDiscount(long orderId)
 
     if (orderId == 1000)
     {
+        std::cout << "Distributor - applied discount" << std::endl;
         return 0.f;
+    }
+    else
+    {
+        std::cout << "Distributor - could not apply discount." << std::endl;
     }
 
     return .7f * orderPrice;
@@ -416,10 +518,19 @@ long Distributor::profileCustomer(long customerId)
     return profilationIdOffset + customerId;
 }
 
+void Distributor::openNewShop(Shop shop)
+{
+    shop.openDoors();
+}
+
 struct InternalSequencer
 {
+    InternalSequencer();
+
     struct MidiClip
     {
+        MidiClip();
+
         std::string clipName = "CHORUS";
         int midiChannel = 0;
         int lengthInBars = 4;
@@ -433,20 +544,22 @@ struct InternalSequencer
         void setMidiChannel(int midiChannel);
     };
 
-struct PianoRoll
-{
-    MidiClip currentClip;
-    float editorViewPortStartPosition = 0;
-    float editorViewPortZoomScalePercentage = 30.f;
-    int backgroundColorId = 1;
-    bool logMidiEvents = true;
-    bool allEventsAreSelected = false;
-    int higherNote = 100;
+    struct PianoRoll
+    {
+        PianoRoll();
 
-    void selectAllEvents();
-    void deleteHigherNote();
-    void increaseZoom(float percentaceAmount);
-};
+        MidiClip currentClip;
+        float editorViewPortStartPosition = 0;
+        float editorViewPortZoomScalePercentage = 30.f;
+        int backgroundColorId = 1;
+        bool logMidiEvents = true;
+        bool allEventsAreSelected = false;
+        int higherNote = 100;
+
+        void selectAllEvents();
+        void deleteHigherNote();
+        void increaseZoom(float percentaceAmount);
+    };
 
     PianoRoll pianoRoll;
 
@@ -465,6 +578,21 @@ struct PianoRoll
     void editInPianoRoll(MidiClip midiClip);
 };
 
+InternalSequencer::InternalSequencer()
+{
+    std::cout << "InternalSequencer" << std::endl;
+}
+
+InternalSequencer::MidiClip::MidiClip()
+{
+    std::cout << "MidiClip" << std::endl;
+}
+
+InternalSequencer::PianoRoll::PianoRoll()
+{
+    std::cout << "PianoRoll" << std::endl;
+}
+
 void InternalSequencer::MidiClip::resize(int newDuration)
 {
     lengthInBars = newDuration;
@@ -474,10 +602,14 @@ void InternalSequencer::MidiClip::transpose(bool destructive)
 {
     if (destructive)
     {
+        std::cout << "MidiClip - DESTRUCTIVE transposition" << std::endl;
+
         baseNoteBeforeTransposition = -1; // less than 0 to invalidate undo cache
     }
     else
     {
+        std::cout << "MidiClip - non destructive transposition" << std::endl;
+
         baseNoteBeforeTransposition = currentBaseNote;
     }
 
@@ -486,6 +618,8 @@ void InternalSequencer::MidiClip::transpose(bool destructive)
 
 void InternalSequencer::MidiClip::setMidiChannel(int midiChnl)
 {
+    std::cout << "MidiClip - setting midi channel to " << midiChnl << std::endl;
+
     midiChannel = midiChnl;
 }
 
@@ -499,9 +633,11 @@ void InternalSequencer::PianoRoll::deleteHigherNote()
     higherNote = -1;
 }
 
-void InternalSequencer::PianoRoll::increaseZoom(float percentaceAmount)
+void InternalSequencer::PianoRoll::increaseZoom(float percentageAmount)
 {
-    editorViewPortZoomScalePercentage += percentaceAmount;
+    editorViewPortZoomScalePercentage += percentageAmount;
+
+    std::cout << "PianoRoll - zoom level: " << editorViewPortZoomScalePercentage << std::endl;
 
     if (editorViewPortZoomScalePercentage > 100.f)
     {
@@ -515,8 +651,31 @@ void InternalSequencer::playback(long timePosition, float speedMultipl)
     speedMultiplier = speedMultipl;
 }
 
+long InternalSequencer::pause()
+{
+    long pausePosition = 7;
+    std::cout << "PianoRoll - pausing playback at: " << pausePosition << std::endl;
+
+    return pausePosition;
+}
+
+long InternalSequencer::stop()
+{
+    long stopPosition = 70;
+    std::cout << "PianoRoll - stopping playback at: " << stopPosition << std::endl;
+
+    return stopPosition;
+}
+
+void InternalSequencer::editInPianoRoll(MidiClip midiClip)
+{
+    midiClip.transpose(false);
+}
+
 struct Synthesizer
 {
+    Synthesizer();
+
     Manufacturer manufacturer;
     SynthEngine synthEngine;
     Case metalBox;
@@ -528,8 +687,15 @@ struct Synthesizer
     void lightUpFeedbackLeds(long durationMilis = 2000);
 };
 
+Synthesizer::Synthesizer()
+{
+    std::cout << "Synthesizer" << std::endl;
+}
+
 void Synthesizer::playNotes()
 {
+    std::cout << "Synthesizer - playing notes." << std::endl;
+
     internalSequencer.playback(0);
 }
 
@@ -537,14 +703,22 @@ void Synthesizer::changeInternalStatus(int eventTypeIdentifier)
 {
     if (eventTypeIdentifier == 1)
     {
+        std::cout << "Synthesizer - switching on portamento." << std::endl;
+
         synthEngine.switchPortamentoOn();
     }
     else if (eventTypeIdentifier == 2)
     {
+        
+        std::cout << "Synthesizer - warming-up" << std::endl;
+        
         synthEngine.warmUp(25);
     }
     else if (eventTypeIdentifier == 3)
     {
+        
+        std::cout << "Synthesizer - making some noise." << std::endl;
+        
         synthEngine.makeNoise(1);
     }
 }
@@ -557,6 +731,89 @@ void Synthesizer::lightUpFeedbackLeds(long durationMilis)
 int main()
 {
     Example::main();
+
+    WaterBottle waterBottle;
+
+    waterBottle.doBreak();
+    waterBottle.getOldAndDirty();
+    waterBottle.standStill();
+
+    Laptop laptop;
+
+    laptop.startUp();
+    laptop.goSleepMode(true);
+    laptop.shutDown();
+
+    Refrigerator refrigerator;
+
+    refrigerator.switchLightOn();
+    refrigerator.lowerTemperature(2);
+    refrigerator.stopTemporarily();
+
+    Guitar guitar;
+
+    guitar.collectDust(410);
+    guitar.play();
+    guitar.soundTerrible(2);
+    guitar.soundTerrible();
+
+    Manufacturer manufacturer;
+
+    manufacturer.createProduct("Nice Desktop Module 1.0");
+    manufacturer.sellBrokenStuff();
+    manufacturer.makeBigMoney();
+
+    SynthEngine synthEngine;
+
+    synthEngine.makeNoise(2);
+    synthEngine.warmUp(37);
+    synthEngine.switchPortamentoOn();
+
+    Case metalBox;
+
+    metalBox.doBreak();
+    metalBox.blinkDisplayLight(40);
+    metalBox.stopResponding(1500);
+
+    Distributor::Shop niceShop;
+    niceShop.prepareProductCatalog();
+    niceShop.openDoors();
+    niceShop.addProductBrand("theGoodBrand(R)");
+
+    Distributor::Shop goodShop;
+    goodShop.prepareProductCatalog();
+    goodShop.openDoors();
+    goodShop.addProductBrand("theGoodBrand(R)");
+
+    Distributor distributor;
+    distributor.applyBlackFridayDiscount(900);
+    distributor.profileCustomer(345);
+    distributor.openNewShop(niceShop);
+    distributor.openNewShop(goodShop);
+
+    InternalSequencer::MidiClip midiClip;
+    midiClip.resize(16);
+    midiClip.transpose(true);
+    midiClip.setMidiChannel(5);
+
+    InternalSequencer::PianoRoll pianoRoll;
+    pianoRoll.selectAllEvents();
+    pianoRoll.deleteHigherNote();
+    pianoRoll.increaseZoom(4.5);
+
+    
+    InternalSequencer internalSequencer;
+    internalSequencer.playback(7, 2.5);
+    internalSequencer.pause();
+    internalSequencer.stop();
+    internalSequencer.editInPianoRoll(midiClip);
+
+    Synthesizer synthesizer;
+    synthesizer.playNotes();
+    synthesizer.changeInternalStatus(2);
+    synthesizer.changeInternalStatus(1);
+    synthesizer.lightUpFeedbackLeds();
+    synthesizer.lightUpFeedbackLeds(800);
 
     //add your code between here:
 
