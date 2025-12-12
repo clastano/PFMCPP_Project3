@@ -42,21 +42,29 @@ int main()
 struct WaterBottle
 {
     WaterBottle();
-    std::string chemicalContentTable = "Nickel 9%, Cadmium 7%, Copper 3%";
-    float capacityInOnces = 2;
-    float containedLiquidLevelInOnces = 1.4f;
-    float currentWeightInKg = 1.8f;
-    int transparencyPercentage = 58;
-    bool broken = false;
-    int dirtynessPercentage = 0;
-    bool waitingForever = false;
+    std::string chemicalContentTable;
+    float capacityInOnces;
+    float containedLiquidLevelInOnces;
+    float currentWeightInKg;
+    int transparencyPercentage;
+    bool broken;
+    int dirtynessPercentage;
+    bool waitingForever;
 
     void doBreak();
     void getOldAndDirty();
     void standStill();
 };
 
-WaterBottle::WaterBottle()
+WaterBottle::WaterBottle(): // initializer list
+chemicalContentTable("Nickel 9%, Cadmium 7%, Copper 3%"),
+capacityInOnces(2),
+containedLiquidLevelInOnces(1.4f),
+currentWeightInKg(1.8f),
+transparencyPercentage(58),
+broken(false),
+dirtynessPercentage(0),
+waitingForever(false)
 {
     std::cout << "WaterBottle" << std::endl;
 }
@@ -91,16 +99,19 @@ struct Laptop
     int trackpadSensitivity = 8;
     int speakersCount = 2;
     float usbPortSpeed = 3.4f;
-    bool isOn = false;
-    bool powerSaving = false;
-    bool savedToDisk = false;
+    bool isOn;
+    bool powerSaving;
+    bool savedToDisk;
 
     long startUp();
     long shutDown();
     void goSleepMode(bool saveToDisk = true);
 };
 
-Laptop::Laptop()
+Laptop::Laptop():
+isOn(false),
+powerSaving(false),
+savedToDisk(false)
 {
     std::cout << "Laptop" << std::endl;
 }
@@ -141,8 +152,8 @@ struct Refrigerator
     Refrigerator();
     float thermostatLowerThresholdInCelsius = 3.f;
     bool thermostatInternalError = false;
-    float totalVolumeInOnces = 2.2f;
-    float powerConsumptionInWatt = .7f;
+    float totalVolumeInOnces;
+    float powerConsumptionInWatt;
     float currentTemperatureInCelsius = 8.1f;
     std::string caseMaterial = "stainless steel";
 
@@ -151,7 +162,9 @@ struct Refrigerator
     void switchLightOn();
 };
 
-Refrigerator::Refrigerator()
+Refrigerator::Refrigerator():
+totalVolumeInOnces(2.2f),
+powerConsumptionInWatt(.7f)
 {
     std::cout << "Refrigerator" << std::endl;
 }
@@ -243,22 +256,34 @@ void Guitar::soundTerrible(int howTerrible)
 struct Manufacturer
 {
     Manufacturer();
-    std::string name = "Foo Instruments";
-    std::string location = "a place";
-    int employeesCount = 487;
-    float yearlyRevenewAsBillionDollars = .1f;
-    std::string financialStatus = "healthy";
-    long lastCreatedProductId = 0;
-    std::string currentPrototypeName = "";
+    std::string name;
+    std::string location;
+    int employeesCount;
+    float yearlyRevenewAsBillionDollars;
+    std::string financialStatus;
+    long lastCreatedProductId;
+    std::string currentPrototypeName;
 
     long createProduct(std::string modelName);
     void sellBrokenStuff();
     float makeBigMoney();
 };
 
-Manufacturer::Manufacturer()
+Manufacturer::Manufacturer():
+name("Foo Instruments"),
+location("a place"),
+employeesCount(487),
+yearlyRevenewAsBillionDollars(.1f),
+financialStatus("healthy"),
+lastCreatedProductId(0),
+currentPrototypeName("")
 {
     std::cout << "Manufacturer" << std::endl;
+    
+    std::cout << "Manufacturer name: [" << name << "]" << std::endl;
+    std::cout << "Manufacturer location: [" << location << "]" << std::endl;
+    std::cout << "Manufacturer financialStatus: [" << financialStatus << "]" << std::endl;
+    std::cout << "Manufacturer yearly revenew: [" << yearlyRevenewAsBillionDollars << "]" << std::endl;
 }
 
 long Manufacturer::createProduct(std::string modelName)
@@ -287,19 +312,28 @@ struct SynthEngine
     float currentVolume = .7f;
     int supportedNoteMaxPitchInHertz = 10000;
     float filterResonanceAmount = .765f;
-    std::string currentNoiseType = "";
-    float warmingRatio = 0.8f;
-    float warmingSpeed = 7.f;
-    bool portamentoOn = false;
+    std::string currentNoiseType;
+    float warmingRatio;
+    float warmingSpeed;
+    bool portamentoOn;
 
     void makeNoise(int noiseType = 1);
     bool warmUp(float targetTemperatureInCelsius);
     void switchPortamentoOn();
 };
 
-SynthEngine::SynthEngine()
+SynthEngine::SynthEngine():
+currentNoiseType(""),
+warmingRatio(0.8f),
+warmingSpeed(7.f),
+portamentoOn(false)
 {
     std::cout << "SynthEngine" << std::endl;
+    
+    std::cout << "SynthEngine currentNoiseType: [" << currentNoiseType << "]" << std::endl;
+    std::cout << "SynthEngine warmingRatio: [" << warmingRatio << "]" << std::endl;
+    std::cout << "SynthEngine warmingSpeed: [" << warmingSpeed << "]" << std::endl;
+    std::cout << "SynthEngine portamento is on ?: [" << portamentoOn << "]" << std::endl;
 }
 
 void SynthEngine::makeNoise(int noiseType)
@@ -399,10 +433,10 @@ struct Distributor
     {
         Shop();
 
-        std::string ownerName = "John Doe";
-        std::string address = "LA";
-        long ranking = 0;
-        int attendentCount = 3;
+        std::string ownerName;
+        std::string address;
+        long ranking;
+        int attendentCount;
         int showRoomArea = 230;
         float moneyBalance = 100.f;
         bool open = false;
@@ -431,7 +465,11 @@ Distributor::Distributor()
     std::cout << "Distributor" << std::endl;
 }
 
-Distributor::Shop::Shop()
+Distributor::Shop::Shop():
+ownerName("John Doe"),
+address("LA"),
+ranking(0),
+attendentCount(3)
 {
     std::cout << "Shop" << std::endl;
 }
@@ -549,12 +587,26 @@ InternalSequencer::InternalSequencer()
     std::cout << "InternalSequencer" << std::endl;
 }
 
-InternalSequencer::MidiClip::MidiClip()
+InternalSequencer::MidiClip::MidiClip():
+clipName("CHORUS"),
+midiChannel(0),
+lengthInBars(4),
+cloneable(true),
+allow(true),
+currentBaseNote(0),
+baseNoteBeforeTransposition(0)
 {
     std::cout << "MidiClip" << std::endl;
+    
+    std::cout << "MidiClip clipName: [" << clipName << "]" << std::endl;
+    std::cout << "MidiClip midiChannel: [" << midiChannel << "]" << std::endl;
+    std::cout << "MidiClip lengthInBars: [" << lengthInBars << "]" << std::endl;
 }
 
-InternalSequencer::PianoRoll::PianoRoll()
+InternalSequencer::PianoRoll::PianoRoll():
+editorViewPortStartPosition(0),
+editorViewPortZoomScalePercentage(30.f),
+backgroundColorId(1)
 {
     std::cout << "PianoRoll" << std::endl;
 }
