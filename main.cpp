@@ -86,6 +86,8 @@ struct WaterBottle
 
     void doBreak();
     void getOldAndDirty();
+    void empty();
+    void contentOverflowTest(float fillingRate);
     void standStill();
 };
 
@@ -111,12 +113,46 @@ void WaterBottle::doBreak()
 void WaterBottle::getOldAndDirty()
 {
 
-    dirtynessPercentage++;
+    ++dirtynessPercentage;
 
     if (dirtynessPercentage > 100)
     {
         dirtynessPercentage = 100;
     }
+}
+
+void WaterBottle::empty()
+{
+    containedLiquidLevelInOnces = 0.f;
+}
+
+void WaterBottle::contentOverflowTest(float fillingRate)
+{
+        
+    std::cout << "-------------------" << std::endl;
+    std::cout << "overflow process: START" << std::endl;
+    std::cout << "-------------------" << std::endl;
+
+    if(fillingRate < 0.f || 1.f < fillingRate)
+    {
+        std::cout << "filling rate should be in rage [0.0, 1.0], but " << fillingRate << " was given." << std::endl;
+
+        fillingRate = (fillingRate > 1.f) ? 1.f : 0.f;
+
+        std::cout << "using value [" << fillingRate << "]" << std::endl; 
+    }
+
+    while(containedLiquidLevelInOnces <= capacityInOnces)
+    {
+        containedLiquidLevelInOnces += 0.3f * fillingRate;
+
+        std::cout << "liquid level [" << containedLiquidLevelInOnces << "] onces" << std::endl;
+    }
+
+
+    std::cout << "-------------------" << std::endl;
+    std::cout << "we got overflow (capacity is [" << capacityInOnces << "] onces)" << std::endl;
+    std::cout << "-------------------" << std::endl;
 }
 
 void WaterBottle::standStill()
@@ -126,7 +162,9 @@ void WaterBottle::standStill()
 
 struct Laptop
 {
-    Laptop();
+    Laptop(int ramGb);
+    int ramGigabytes;
+    int memoryCursorPosition;
     float displayWidth = 200;
     std::string keyboardlayout = "en.US";
     int trackpadSensitivity = 8;
@@ -141,11 +179,14 @@ struct Laptop
     void goSleepMode(bool saveToDisk = true);
 };
 
-Laptop::Laptop():
+Laptop::Laptop(int ramGb):
 isOn(false),
 powerSaving(false),
 savedToDisk(false)
 {
+    ramGigabytes = ramGb;
+    memoryCursorPosition = 0;
+
     std::cout << "Laptop" << std::endl;
 }
 
@@ -173,8 +214,19 @@ void Laptop::goSleepMode(bool saveToDisk)
 
     if (saveToDisk)
     {
-        savedToDisk = true;
+
         std::cout << "Laptop going sleep mode. saving to disk." << std::endl;
+
+        memoryCursorPosition = 0;
+        
+        for(int i = 0; i <= ramGigabytes; i++)
+        {
+            --memoryCursorPosition;
+        }
+
+        std::cout << "Laptop going sleep mode. RAM persisted." << std::endl;
+
+        savedToDisk = true;
     }
 
     powerSaving = true;
@@ -605,10 +657,10 @@ struct InternalSequencer
     int currentlySelectedTrack = 3;
     int currentlySelectedPattern = 9;
     int midiBufferSize = 1024;
-    long currentPlaybackPosition = 0;
-    float speedMultiplier = 1.f;
+    float currentPlaybackPosition = 0;
+    float songLength = 200.f;
 
-    void playback(long timePosition = 0, float speedMultiplier = 1.f);
+    void playback(float timePosition = 0.f, float speedMultiplier = 1.f);
     long pause();
     long stop();
 
@@ -696,10 +748,20 @@ void InternalSequencer::PianoRoll::increaseZoom(float percentageAmount)
     }
 }
 
-void InternalSequencer::playback(long timePosition, float speedMultipl)
+void InternalSequencer::playback(float timePosition, float speedMultipl)
 {
+
+    // start position
     currentPlaybackPosition = timePosition;
-    speedMultiplier = speedMultipl;
+
+    while(currentPlaybackPosition < songLength)
+    {        
+        currentPlaybackPosition += speedMultipl * 1;
+
+        std::cout << "PianoRoll - playback position at: " << currentPlaybackPosition << std::endl;
+    }
+        
+    std::cout << "PianoRoll - playback finished" << std::endl;
 }
 
 long InternalSequencer::pause()
@@ -747,7 +809,7 @@ void Synthesizer::playNotes()
 {
     std::cout << "Synthesizer - playing notes." << std::endl;
 
-    internalSequencer.playback(0);
+    internalSequencer.playback(0.f);
 }
 
 void Synthesizer::changeInternalStatus(int eventTypeIdentifier)
@@ -789,9 +851,16 @@ int main()
 
     waterBottle.doBreak();
     waterBottle.getOldAndDirty();
+    
+    waterBottle.empty();
+    waterBottle.contentOverflowTest(0.8f);
+
+    waterBottle.empty();
+    waterBottle.contentOverflowTest(0.1f);
+    
     waterBottle.standStill();
 
-    Laptop laptop;
+    Laptop laptop(2048);
 
     laptop.startUp();
     laptop.goSleepMode(true);
@@ -856,7 +925,7 @@ int main()
 
     
     InternalSequencer internalSequencer;
-    internalSequencer.playback(7, 2.5);
+    internalSequencer.playback(7.f, 2.5f);
     internalSequencer.pause();
     internalSequencer.stop();
     internalSequencer.editInPianoRoll(midiClip);
