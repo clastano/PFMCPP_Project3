@@ -221,7 +221,7 @@ void Laptop::goSleepMode(bool saveToDisk)
         
         for(int i = 0; i <= ramGigabytes; i++)
         {
-            memoryCursorPosition++;
+            --memoryCursorPosition;
         }
 
         std::cout << "Laptop going sleep mode. RAM persisted." << std::endl;
