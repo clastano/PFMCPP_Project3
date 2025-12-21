@@ -113,7 +113,7 @@ void WaterBottle::doBreak()
 void WaterBottle::getOldAndDirty()
 {
 
-    dirtynessPercentage++;
+    ++dirtynessPercentage;
 
     if (dirtynessPercentage > 100)
     {
